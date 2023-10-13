@@ -1,4 +1,3 @@
-import tensorflow as tf
 import keras
 from tensorflow.python.keras.layers.convolutional import Conv
 from tensorflow.python.keras import activations
