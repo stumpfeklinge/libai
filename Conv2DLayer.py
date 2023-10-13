@@ -4,8 +4,6 @@ from tensorflow.python.keras import activations
 from tensorflow.python.keras import initializers
 from tensorflow.python.keras import regularizers
 from tensorflow.python.keras import constraints
-from tensorflow.python.keras.layers import Flatten
-from tensorflow.python.keras.layers import Dense
 
 class Conv2DLayer(Conv):
 
