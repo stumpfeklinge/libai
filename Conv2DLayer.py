@@ -1,26 +1,50 @@
 import tensorflow as tf
+import keras
+from tensorflow.python.keras.layers.convolutional import Conv
+from tensorflow.python.keras import activations
+from tensorflow.python.keras import initializers
+from tensorflow.python.keras import regularizers
+from tensorflow.python.keras import constraints
+from tensorflow.python.keras.layers import Flatten
+from tensorflow.python.keras.layers import Dense
 
-class Conv2DLayer(tf.keras.layers.Layer):
-    def __init__(self, num_filters, kernel_size):
-        super(Conv2DLayer, self).__init__()
-        self.num_filters = num_filters
-        self.kernel_size = kernel_size
-        self.conv_layer = tf.keras.layers.Conv2D(num_filters, kernel_size)
+class Conv2DLayer(Conv):
 
-    def call(self, inputs):
-        output = self.conv_layer(inputs)
-        return output
+  def __init__(self,
+               filters,
+               kernel_size,
+               strides=(1, 1),
+               padding='valid',
+               data_format=None,
+               dilation_rate=(1, 1),
+               groups=1,
+               activation=None,
+               use_bias=True,
+               kernel_initializer='glorot_uniform',
+               bias_initializer='zeros',
+               kernel_regularizer=None,
+               bias_regularizer=None,
+               activity_regularizer=None,
+               kernel_constraint=None,
+               bias_constraint=None,
+               **kwargs):
+    super(Conv2DLayer, self).__init__(
+        rank=2,
+        filters=filters,
+        kernel_size=kernel_size,
+        strides=strides,
+        padding=padding,
+        data_format=data_format,
+        dilation_rate=dilation_rate,
+        groups=groups,
+        activation=activations.get(activation),
+        use_bias=use_bias,
+        kernel_initializer=initializers.get(kernel_initializer),
+        bias_initializer=initializers.get(bias_initializer),
+        kernel_regularizer=regularizers.get(kernel_regularizer),
+        bias_regularizer=regularizers.get(bias_regularizer),
+        activity_regularizer=regularizers.get(activity_regularizer),
+        kernel_constraint=constraints.get(kernel_constraint),
+        bias_constraint=constraints.get(bias_constraint),
+        **kwargs)
 
-# Пример использования
-'''
-input_shape = (32, 32, 3)
-num_filters = 64
-kernel_size = (3, 3)
-input_data = tf.random.normal((1,) + input_shape)
-
-conv_layer = Conv2DLayer(num_filters, kernel_size)
-output_data = conv_layer(input_data)
-
-print(f"Input shape: {input_data.shape}")
-print(f"Output shape: {output_data.shape}")
-'''
