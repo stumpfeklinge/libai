@@ -64,11 +64,11 @@ class Pooling2DLayer(Layer):
         'strides': self.strides,
         'data_format': self.data_format
     }
-    base_config = super(Pooling2D, self).get_config()
+    base_config = super(Pooling2DLayer, self).get_config()
     return dict(list(base_config.items()) + list(config.items()))
 
 
-class MaxPool2DLayer(Pooling2D):
+class MaxPool2DLayer(Pooling2DLayer):
 
   def __init__(self,
                pool_size=(2, 2),
