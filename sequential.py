@@ -23,7 +23,7 @@ from tensorflow.python.framework import ops
 from tensorflow.python.framework import tensor_util
 from tensorflow.python.keras import layers as layer_module
 from tensorflow.python.keras.engine import base_layer
-from tensorflow.python.keras.engine import functional
+import functional
 from tensorflow.python.keras.engine import input_layer
 from tensorflow.python.keras.engine import training_utils
 from tensorflow.python.keras.saving.saved_model import model_serialization
