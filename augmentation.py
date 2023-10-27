@@ -13,11 +13,7 @@ def augmentation(x_train,y_train):
         rotated_image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)  # Поворот изображения
         rotated_images.append(rotated_image)
     rotated_images = np.array(rotated_images)
-
-    # Объедините оригинальные, отраженные и повернутые изображения
-    x_train_augmented = np.concatenate([x_train, flipped_images, rotated_images])
-    y_train_augmented = np.concatenate([y_train, y_train, y_train])
-
+    
     # Примените добавление шума
     noisy_images = []
     for image in x_train:
