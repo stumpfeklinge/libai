@@ -5,6 +5,8 @@ from Conv2DLayer import Conv2DLayer
 from MaxPool2DLayer import MaxPool2DLayer
 from Flatten2D import Flatten2D
 from Dense2D import Dense2D
+# from sequential import Sequential
+from tensorflow.keras import Sequential
 from Dropout2DLayer import Dropout, Dropout2D
 from PIL import Image
 import matplotlib.pyplot as plt
@@ -27,7 +29,7 @@ x_train = np.expand_dims(x_train, axis=3)
 x_test = np.expand_dims(x_test, axis=3)
 print(x_train.shape)
 
-model = keras.Sequential([
+model = Sequential([
     Conv2DLayer(32, (3, 3), padding='same', activation='relu', input_shape=(28, 28, 1)),
     # Dropout2D(0.5),
     MaxPool2DLayer((2, 2), strides=2),
