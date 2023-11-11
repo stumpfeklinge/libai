@@ -36,9 +36,9 @@ import warnings
 import numpy as np
 
 from keras import backend
-from keras.utils import data_utils
-from keras.utils import image_utils
-from keras.utils import io_utils
+from tensorflow.python.keras.utils import data_utils
+from keras.src.preprocessing.image import image_utils
+from tensorflow.python.keras.utils import io_utils
 
 # isort: off
 from tensorflow.python.util.tf_export import keras_export
