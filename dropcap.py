@@ -7,6 +7,7 @@ from Dense2D import Dense2D
 from Dropout2DLayer import Dropout
 import tensorflow as tf
 
+
 batch_size = 1
 image_size = (28, 28)
 
@@ -31,6 +32,8 @@ test_dataset = image_dataset_from_directory('test',
                                             batch_size=batch_size,
                                             image_size=image_size)
 
+
+
 AUTOTUNE = tf.data.experimental.AUTOTUNE
 
 train_dataset = train_dataset.prefetch(buffer_size=AUTOTUNE)
@@ -38,28 +41,18 @@ validation_dataset = validation_dataset.prefetch(buffer_size=AUTOTUNE)
 test_dataset = test_dataset.prefetch(buffer_size=AUTOTUNE)
 
 model = keras.Sequential([
+
     Conv2DLayer(32, (3, 3), input_shape=(28, 28, 3), activation='relu', padding='same'),
     MaxPool2DLayer((2, 2)),
-
-
+  
     Conv2DLayer(64, (3, 3), input_shape=(28, 28, 3), activation='relu', padding='same'),
     MaxPool2DLayer((2, 2)),
-
-
+  
     Conv2DLayer(128, (3, 3), padding='same', activation='relu'),
-    MaxPool2DLayer((2, 2)),
-
-
-    Conv2DLayer(256, (3, 3), padding='same', activation='relu'),
-    MaxPool2DLayer((2, 2)),
-
 
     Flatten2D(),
     Dense2D(128, activation='relu'),
-
-    Dense2D(256, activation='relu'),
-
-    Dense2D(32, activation='softmax')
+    Dense2D(49, activation='softmax')
 ])
 
 model.compile(loss='sparse_categorical_crossentropy',
