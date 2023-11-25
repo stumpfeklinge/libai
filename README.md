@@ -70,7 +70,7 @@
 ```javascript
 import numpy as np
 from tensorflow.keras.datasets import mnist
-from bgno import keras
+from tensorflow import keras
 from bgno import Dense, Flatten
 from bgno import Conv2DLayer
 from bgno import MaxPool2DLayer
