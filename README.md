@@ -70,10 +70,10 @@
 ```javascript
 import numpy as np
 from tensorflow.keras.datasets import mnist
-from tensorflow import keras
-from tensorflow.keras.layers import Dense, Flatten
-from Conv2DLayer import Conv2DLayer
-from MaxPool2DLayer import MaxPool2DLayer
+from bgno import keras
+from bgno import Dense, Flatten
+from bgno import Conv2DLayer
+from bgno import MaxPool2DLayer
 
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -111,4 +111,4 @@ model.evaluate(x_test, y_test_cat)
 - [Бессонов Артем](https://github.com/stumpfeklinge)
 - [Нефедов Евгений](https://github.com/EugeneNefedov)
 - [Гугасян Артур](https://github.com/ZOOW2)
-- [Олейников Владимир](https://github.com/AddLineF)
+- [Олейников Владимир](https://github.com/ZOOW2)
