@@ -1,5 +1,6 @@
-
-
+```javascript
+pip install bgno==0.1
+```
 ## About
 
 Данная библиотека создана для работы с нейронными сетями.
@@ -9,7 +10,7 @@
 Для установки библиотеки нужно воспользоваться устанощиком пакетов pip. Воспользуйтесь коммандой “pip install bgno==0.1”
 
 **Установочная команда**
-```json
+```javascript
     pip install bgno==0.1
 ```
 
@@ -34,33 +35,33 @@
 ### Примеры использования каждого класса:
 
 - **Conv2D**
-```json
+```javascript
     from bgno import Conv2D
     model = Sequential()
     model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 ```
 - **Dense2D**
-```json
+```javascript
     from bgno import Dense2D
     model.add(Dense2D(128, activation='relu'))
 ```
 - **Dropout**
-```json
+```javascript
     from bgno import Dropout
     model.add(Dropout(0.5))
 ```
 - **Flatten2D**
-```json
+```javascript
     from bgno import Flatten2D
     model.add(Flatten2D())
 ```
 - **MaxPool2DLayer**
-```json
+```javascript
     from bgno import MaxPool2DLayer
     model.add(MaxPool2DLayer ((2, 2)))
 ```
 - **image_dataset_from_directory**
-```json
+```javascript
     from bgno import image_dataset_from_directory
     train_datagen = image_dataset_from_directory (rescale=1./255)
     train_generator = image_dataset_from_directory('data/train', target_size=(150, 150), batch_size=32, class_mode='binary')
@@ -69,7 +70,7 @@
 
 ### Пример сверточной нейросети, классифицирующей цифры датасета MNIST, построенной на базе нашей библиотеки:
 
-```json
+```javascript
 import numpy as np
 from tensorflow.keras.datasets import mnist
 from tensorflow import keras
