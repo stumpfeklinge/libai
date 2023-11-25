@@ -67,7 +67,7 @@
 
 ### Пример сверточной нейросети, классифицирующей цифры датасета MNIST, построенной на базе нашей библиотеки:
 
-```javascript
+```python
 import numpy as np
 from tensorflow.keras.datasets import mnist
 from tensorflow import keras
