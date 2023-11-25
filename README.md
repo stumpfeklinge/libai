@@ -7,7 +7,7 @@
 Для установки библиотеки нужно воспользоваться устанощиком пакетов pip. Воспользуйтесь коммандой “pip install bgno==0.1”
 
 **Установочная команда**
-```javascript
+```python
     pip install bgno==0.1
 ```
 
@@ -38,27 +38,27 @@
     model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 ```
 - **Dense2D**
-```javascript
+```python
     from bgno import Dense2D
     model.add(Dense2D(128, activation='relu'))
 ```
 - **Dropout**
-```javascript
+```python
     from bgno import Dropout
     model.add(Dropout(0.5))
 ```
 - **Flatten2D**
-```javascript
+```python
     from bgno import Flatten2D
     model.add(Flatten2D())
 ```
 - **MaxPool2DLayer**
-```javascript
+```python
     from bgno import MaxPool2DLayer
     model.add(MaxPool2DLayer ((2, 2)))
 ```
 - **image_dataset_from_directory**
-```javascript
+```python
     from bgno import image_dataset_from_directory
     train_datagen = image_dataset_from_directory (rescale=1./255)
     train_generator = image_dataset_from_directory('data/train', target_size=(150, 150), batch_size=32, class_mode='binary')
