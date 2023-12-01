@@ -7,6 +7,7 @@ from Dense2D import Dense2D
 from Dropout2DLayer import Dropout
 import tensorflow as tf
 import numpy as np
+from keras.preprocessing import image
 
 batch_size = 1
 image_size = (28, 28)
@@ -35,8 +36,8 @@ test_dataset = image_dataset_from_directory('test',
 
 class_names = test_dataset.class_names
 print(class_names)
-test_label = np.concatenate([y for x, y in test_dataset], axis=0)
-print(test_label)
+#test_label = np.concatenate([y for x, y in test_dataset], axis=0)
+#print(test_label)
 
 
 AUTOTUNE = tf.data.experimental.AUTOTUNE
@@ -55,7 +56,7 @@ model = keras.Sequential([
 
     Flatten2D(),
     Dense2D(128, activation='relu'),
-    Dense2D(32, activation='softmax')
+    Dense2D(50, activation='softmax')
 ])
 
 model.compile(loss='sparse_categorical_crossentropy',
@@ -68,9 +69,22 @@ history = model.fit(train_dataset,
                     verbose=2)
 
 
+prediction=[]
 
-predictions = model.predict(test_dataset)
-print(test_label[0],np.argmax(predictions[0]),"с вероятностью", max(predictions[0]))
+imgz =  np.expand_dims(image.img_to_array(image.load_img('zvezda.jpg', target_size=image_size)),axis=0)
+prediction += [model.predict(imgz)]
+#print("prediction shape:", prediction.shape)
+#print("Predictions:", *prediction[0], sep='\n')
+print("Предикт на символ звезды: относится к классу- ",class_names[np.argmax(prediction[0])] ," с вероятностью= ",max(prediction[0][0]))
+imgr =  np.expand_dims(image.img_to_array(image.load_img('right.jpg', target_size=image_size)),axis=0)
+prediction += [model.predict(imgr)]
+print("Предикт на символ стрелочка: относится к классу- ",class_names[np.argmax(prediction[1])] ," с вероятностью= ",max(prediction[1][0]))
+imgu =  np.expand_dims(image.img_to_array(image.load_img('u.jpg', target_size=image_size)),axis=0)
+prediction += [model.predict(imgu)]
+print("Предикт на букву ю: относится к классу- ",class_names[np.argmax(prediction[2])] ," с вероятностью= ",max(prediction[2][0]))
+imgk =  np.expand_dims(image.img_to_array(image.load_img('k.png', target_size=image_size)),axis=0)
+prediction += [model.predict(imgk)]
+print("Предикт на букву к: относится к классу- ",class_names[np.argmax(prediction[3])] ," с вероятностью= ",max(prediction[3][0]))
 
 scores = model.evaluate(test_dataset, verbose=1)
 print("Доля верных ответов на тестовых данных, в процентах:", round(scores[1] * 100, 4))
