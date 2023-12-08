@@ -110,5 +110,5 @@ model.evaluate(x_test, y_test_cat)
 
 - [Бессонов Артем](https://github.com/stumpfeklinge)
 - [Нефедов Евгений](https://github.com/EugeneNefedov)
-- [Гугасян Артур](https://github.com/ZOOW2)
+- [Гугасян Артур](https://github.com/AddLineF)
 - [Олейников Владимир](https://github.com/ZOOW2)
